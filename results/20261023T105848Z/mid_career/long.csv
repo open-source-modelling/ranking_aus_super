@@ -1,0 +1,29 @@
+﻿run,model,fund,rank,est_admin,est_invest,est_total,reason,actual_rank,actual_total,actual_admin,actual_invest,abs_pct_err_total,abs_pct_err_admin,abs_pct_err_invest,total_gap
+1,claude-sonnet-5,QSuper Lifetime,1,150.0,600.0,750.0,Lifecycle cohort design and large scale (now part of ART) historically give very low combined admin+investment costs.,14,1120.0,640.0,480.0,33.0,76.6,25.0,0.0
+1,claude-sonnet-5,Commonwealth Superannuation Corporation (CSC),2,170.0,655.0,825.0,Public-sector profit-to-member fund with low-cost passive-leaning default strategy.,19,1447.0,82.0,1365.0,43.0,107.3,52.0,0.0
+1,claude-sonnet-5,Vanguard MySuper,3,150.0,750.0,900.0,Index-heavy low-cost investment approach keeps the investment fee very low despite modest admin charge.,17,1336.0,391.0,945.0,32.6,61.6,20.6,0.0
+1,claude-sonnet-5,UniSuper,4,190.0,785.0,975.0,Large not-for-profit fund with low percentage-based fees and modest flat admin fee.,6,843.0,468.0,375.0,15.7,59.4,109.3,0.0
+1,claude-sonnet-5,Rest Super,5,230.0,790.0,1020.0,Large retail-size industry fund with competitive scale-driven fees.,25,1548.0,393.0,1155.0,34.1,41.5,31.6,0.0
+1,claude-sonnet-5,Cbus Super,6,210.0,840.0,1050.0,"Big industry fund benefiting from scale, moderate admin and investment costs.",23,1529.0,164.0,1365.0,31.3,28.0,38.5,0.0
+1,claude-sonnet-5,HESTA Super Fund,7,220.0,840.0,1060.0,"Similar large industry fund profile to Cbus, slightly higher investment fee.",5,790.0,295.0,495.0,34.2,25.4,69.7,0.0
+1,claude-sonnet-5,AustralianSuper,8,210.0,890.0,1100.0,Very large fund but slightly higher growth-option investment fee than smaller peers.,18,1370.0,110.0,1260.0,19.7,90.9,29.4,0.0
+1,claude-sonnet-5,CareSuper,9,230.0,940.0,1170.0,Mid-size industry fund with moderately higher investment costs.,7,856.0,466.0,390.0,36.7,50.6,141.0,0.0
+1,claude-sonnet-5,Equipsuper,10,240.0,945.0,1185.0,"Smaller industry fund, slightly higher per-member cost due to less scale.",12,1096.0,481.0,615.0,8.1,50.1,53.7,0.0
+1,claude-sonnet-5,MySuper - Australian Food Super (formerly AMIST Super),11,250.0,950.0,1200.0,"Default MySuper option carries standard industry-fund fee levels, cheaper than its non-MySuper choice option.",15,1250.0,200.0,1050.0,4.0,25.0,9.5,0.0
+1,claude-sonnet-5,HOSTPLUS Superannuation Fund,12,260.0,985.0,1245.0,Diversified/unlisted asset exposure pushes investment fee a bit higher than peers.,16,1276.0,271.0,1005.0,2.4,4.1,2.0,0.0
+1,claude-sonnet-5,NGS Super,13,265.0,995.0,1260.0,Mid-tier industry fund with slightly above-average investment fee.,22,1516.0,526.0,990.0,16.9,49.6,0.5,0.0
+1,claude-sonnet-5,Vision Super,14,270.0,1020.0,1290.0,Smaller fund size results in modestly higher per-member fees.,33,1874.0,434.0,1440.0,31.2,37.8,29.2,0.0
+1,claude-sonnet-5,BUSSQ Superannuation,15,280.0,1040.0,1320.0,Niche industry fund with smaller scale raising both admin and investment costs.,24,1544.0,149.0,1395.0,14.5,87.9,25.4,0.0
+1,claude-sonnet-5,FIRST Super,16,285.0,1065.0,1350.0,"Small industry fund, limited scale drives fees higher.",29,1650.0,285.0,1365.0,18.2,0.0,22.0,0.0
+1,claude-sonnet-5,smartMonday Lifecycle,17,295.0,1100.0,1395.0,Corporate master trust lifecycle option carries higher administration overhead than pure industry funds.,13,1105.0,250.0,855.0,26.2,18.0,28.7,0.0
+1,claude-sonnet-5,smartMonday LifeStage,18,300.0,1125.0,1425.0,Similar structure to smartMonday Lifecycle but slightly higher investment fee for this age cohort.,25,1548.0,213.0,1335.0,7.9,40.8,15.7,0.0
+1,claude-sonnet-5,MySuper Lifecycle,19,305.0,1135.0,1440.0,Generic lifecycle MySuper product with moderate master-trust style fees.,20,1477.0,127.0,1350.0,2.5,140.2,15.9,0.0
+1,claude-sonnet-5,Mercer SmartPath,20,310.0,1145.0,1455.0,Corporate master trust with layered investment management costs above industry-fund norms.,28,1621.0,136.0,1485.0,10.2,127.9,22.9,0.0
+1,claude-sonnet-5,Prime Super,21,315.0,1155.0,1470.0,Smaller multi-industry fund with above-average combined fee load.,4,779.0,329.0,450.0,88.7,4.3,156.7,0.0
+1,claude-sonnet-5,Brighter Super,22,320.0,1180.0,1500.0,"Merged regional fund still transitioning to scale efficiencies, pushing fees up.",31,1710.0,210.0,1500.0,12.3,52.4,21.3,0.0
+1,claude-sonnet-5,NESS Super,23,325.0,1190.0,1515.0,Small fund size results in higher per-member fee allocation.,27,1563.0,378.0,1185.0,3.1,14.0,0.4,0.0
+1,claude-sonnet-5,REI Super,24,330.0,1215.0,1545.0,Niche industry fund with limited scale and higher investment costs.,30,1681.0,376.0,1305.0,8.1,12.2,6.9,0.0
+1,claude-sonnet-5,Team Super,25,335.0,1240.0,1575.0,Smaller fund with above-average admin and investment charges.,3,650.0,125.0,525.0,142.3,168.0,136.2,0.0
+1,claude-sonnet-5,Australian Food Super (formerly AMIST Super),26,345.0,1275.0,1620.0,Non-MySuper/choice version of this fund carries higher legacy-style fees than its MySuper default.,2,584.0,149.0,435.0,177.4,131.5,193.1,0.0
+1,claude-sonnet-5,Essential Super,27,350.0,1300.0,1650.0,Bank-owned retail super product with higher built-in margins than industry funds.,8,888.0,468.0,420.0,85.8,25.2,209.5,0.0
+1,claude-sonnet-5,Bendigo Super,28,370.0,1355.0,1725.0,Retail bank-aligned fund with,21,1503.0,123.0,1380.0,14.8,200.8,1.8,0.0

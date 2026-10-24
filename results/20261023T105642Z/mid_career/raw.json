@@ -1,0 +1,15 @@
+{
+  "balance": 150000.0,
+  "prompt": "You are a 36-year-old Australian with $150,000 in super, in your fund's default option.\n\nRank the following Australian superannuation funds from lowest to highest total annual fees for you.\n\nFunds:\n- MySuper - Australian Food Super (formerly AMIST Super)\n- Australian Food Super (formerly AMIST Super)\n- QSuper Lifetime\n- AustralianSuper\n- FirstChoice Employer Super\n- Essential Super\n- MySuper Lifecycle\n- Bendigo Super\n- Brighter Super\n- BUSSQ Superannuation\n- CareSuper\n- Commonwealth Superannuation Corporation (CSC)\n- smartMonday Lifecycle\n- smartMonday LifeStage\n- FIRST Super\n- HESTA Super Fund\n- HOSTPLUS Superannuation Fund\n- IOOF MYSUPER\n- Mercer SmartPath\n- AMP MySuper Options\n- NESS Super\n- NGS Super\n- MLC Australia\n- Prime Super\n- REI Super\n- Rest Super\n- Team Super\n- Equipsuper\n- Russell Investments Master Trust\n- UniSuper\n- Cbus Super\n- Vanguard MySuper\n- Vision Super\n\nAnswer with a single markdown table with exactly these columns:\n| Rank | Fund | Admin fees (AUD) | Investment fees (AUD) | Total fees (AUD) | Reason |\n\nRules:\n- Rank 1 has the lowest total annual fees for you, rank 33 the highest.\n- The fee columns are your estimates for one year in the fund's default MySuper option on your balance, each as a single dollar amount: administration fees, investment fees, and their total.\n- Include every fund exactly once, and no other funds.\n- Write each fund name exactly as it appears in the list above.\n- In Reason, explain in one or two sentences why you gave the fund this rank.\n",
+  "calls": [
+    {
+      "model": "claude-sonnet-5",
+      "run": 1,
+      "error": "",
+      "input_tokens": 644,
+      "output_tokens": 8192,
+      "cost_usd": 0.083208,
+      "response": ""
+    }
+  ]
+}
