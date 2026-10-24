@@ -42,7 +42,7 @@ INPUTS = ROOT / "inputs"  # companies.csv and fees.csv
 
 # Prices in USD per 1M tokens; re-check before relying on the cost figures.
 MODELS: list[dict[str, Any]] = [
-    {"provider": "anthropic", "model": "claude-sonnet-5", "in": 2.00, "out": 10.00, "max_tokens": 32768},
+    {"provider": "anthropic", "model": "claude-sonnet-5", "in": 2.00, "out": 10.00, "max_tokens": 16384},
     {"provider": "openai", "model": "gpt-5.6-terra", "in": 2.00, "out": 12.00, "max_tokens": 32768},
     {"provider": "google", "model": "gemini-3.1-pro-preview", "in": 2.00, "out": 12.00, "max_tokens": 32768},
 ]

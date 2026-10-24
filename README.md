@@ -38,7 +38,7 @@ Models used by default (the `MODELS` list at the top of [`llm_super_ranking.py`]
 
 | Provider | Model | Output-token cap |
 |---|---|---|
-| Anthropic | `claude-sonnet-5` | 32,768 |
+| Anthropic | `claude-sonnet-5` | 16,384 |
 | OpenAI | `gpt-5.6-terra` | 32,768 |
 | Google | `gemini-3.1-pro-preview` | 32,768 |
 
@@ -206,7 +206,6 @@ Sources/
   Manual calc.xlsx            hand calculation of the fees, used to check the script
   fund_reports_on_fees/       PDSs and fee guides behind fees.csv
 results/                      generated output, one timestamped folder per run
-archive/it_life_insurance/    the earlier version of this tool, for Italian life insurers
 requirements.txt              anthropic, openai, google-genai, pandas
 LICENSE                       MIT
 ```
