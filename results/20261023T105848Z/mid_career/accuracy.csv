@@ -1,2 +1,0 @@
-﻿model,rank_corr,median_abs_pct_err_total,median_abs_pct_err_admin,median_abs_pct_err_invest,funds_ranked_per_run,total_mismatches_per_run
-claude-sonnet-5,0.06,18.95,49.85,27.05,28.0,0.0
