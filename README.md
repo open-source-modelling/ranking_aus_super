@@ -14,9 +14,9 @@ For each persona in `personas/`, each model and each run:
 4. **Compare** with the actual fees for the persona's balance. Admin fees, investment fees and transaction costs are kept separate, as funds disclose them, so each can be checked against other sources:
 
    ```text
-   admin  = admin_fee_fixed_aud + balance × admin_fee_pct / 100
-   invest = balance × investment_fee_pct / 100
-   trans  = balance × transaction_cost_pct / 100
+   admin  = admin_fee_fixed_aud + balance × admin_fee_rate
+   invest = balance × investment_fee_rate
+   trans  = balance × transaction_cost_rate
    total  = admin + invest + trans        (funds are ranked by total)
    ```
 
@@ -27,7 +27,7 @@ The balance is the first dollar amount in the persona text, e.g. `$150,000`. A p
 | File | Contents |
 |---|---|
 | `companies.csv` | Funds to rank: one `company` column |
-| `fees.csv` | `company, admin_fee_fixed_aud, admin_fee_pct, investment_fee_pct, transaction_cost_pct, source`. Every fund in `companies.csv` must be here, with the same name |
+| `fees.csv` | `company, admin_fee_fixed_aud, admin_fee_rate, investment_fee_rate, transaction_cost_rate, source`. Rates are decimals, the way Excel stores percentages: 0.50% p.a. is `0.005`. Every fund in `companies.csv` must be here, with the same name |
 | `personas/*.txt` | One customer per file: the scenario, its balance and the request to rank. All are run |
 | `llm_super_ranking.py` | The script |
 | `archive/it_life_insurance/` | The earlier Italian life-insurer version |

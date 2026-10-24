@@ -7,10 +7,11 @@ For every persona in personas/*.txt, every model and every run, the prompt is th
 persona text + the funds in companies.csv + the answer-format rules below. The
 model's | Rank | Fund | Admin | Investment | Transaction | Total | Reason | table is parsed per fund.
 
-The persona's balance is the first dollar amount in its text ($50,000 if none). Actual fees and costs:
-    admin  = admin_fee_fixed_aud + balance * admin_fee_pct / 100
-    invest = balance * investment_fee_pct / 100
-    trans  = balance * transaction_cost_pct / 100
+The persona's balance is the first dollar amount in its text ($50,000 if none). Actual fees and costs,
+with the rates in fees.csv as decimals, the way Excel stores percentages (0.50% p.a. = 0.005):
+    admin  = admin_fee_fixed_aud + balance * admin_fee_rate
+    invest = balance * investment_fee_rate
+    trans  = balance * transaction_cost_rate
     total  = admin + invest + trans        (funds are ranked by total)
 
 Outputs in results/<timestamp>/<persona>/:
@@ -77,7 +78,8 @@ def call_openai(model, prompt, max_tokens):
 
 def call_google(model, prompt, max_tokens):
     from google import genai
-    r = genai.Client().models.generate_content(model=model, contents=prompt, config={"max_output_tokens": max_tokens})
+    client = genai.Client()  # keep a reference: a discarded Client closes its connection before the request is sent
+    r = client.models.generate_content(model=model, contents=prompt, config={"max_output_tokens": max_tokens})
     u = r.usage_metadata  # thinking tokens are billed as output
     return r.text or "", u.prompt_token_count or 0, (u.candidates_token_count or 0) + (u.thoughts_token_count or 0)
 
@@ -135,9 +137,9 @@ def main():
         persona_text = persona.read_text(encoding="utf-8").strip()
         m = re.search(r"\$([\d,]+)", persona_text)
         balance = float(m.group(1).replace(",", "")) if m else 50_000.0
-        admin = fees.admin_fee_fixed_aud + balance * fees.admin_fee_pct / 100
-        invest = balance * fees.investment_fee_pct / 100
-        trans = balance * fees.transaction_cost_pct / 100
+        admin = fees.admin_fee_fixed_aud + balance * fees.admin_fee_rate
+        invest = balance * fees.investment_fee_rate
+        trans = balance * fees.transaction_cost_rate
         total = admin + invest + trans
         actual = pd.DataFrame({"actual_rank": total.rank(method="min").astype(int), "actual_total": total,
                                "actual_admin": admin, "actual_invest": invest, "actual_trans": trans}).round(2)

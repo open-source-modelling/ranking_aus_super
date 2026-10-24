@@ -1,5 +1,5 @@
-company,admin_fee_fixed_aud,admin_fee_pct,investment_fee_pct,transaction_cost_pct,source
-Qsuper Lifetime,57.2,0.0006,0.0039,0.0005,https://qsuper.qld.gov.au/our-products/our-fees
+company,admin_fee_fixed_aud,admin_fee_rate,investment_fee_rate,transaction_cost_rate,source
+QSuper Lifetime ,57.2,0.0006,0.0039,0.0005,https://qsuper.qld.gov.au/our-products/our-fees
 AustralianSuper,52,0.001,0.005,0.0009,fees-and-costs_AustralianSuper.pdf
 FirstChoice Employer Super,60,0.0004,0.0061,0.0037,FirstChoice Employer Super_fs8688.pdf
 Essential Super,60,0.0004,0.006,0,Essential Super_fs7915.pdf
@@ -10,7 +10,7 @@ CareSuper,67.6,0.0015,0.0048,0.0007,https://www.caresuper.com.au/members/why-cho
 OneSuper,20,0.0035,0.0031,0,https://www.superguide.com.au/super-funds-guide/onesuper
 smartMonday LifeStage,67.6,0.0016,0.00468,0.0003,Smart_Monday_1786595961-final_sm_pds_tesf_14082026.pdf
 FIRST Super,85.8,0.0018,0.0043,0.0008,https://www.firstsuper.com.au/superannuation/fees-costs/
-HESTA Super Fund,52,0.0015,0.0048,0.0004,https://hostplus.com.au/about-us/legals/pds#accordion-f7de90f571-item-cd98b24680
+HESTA Super Fund,52,0.0015,0.0048,0.0004,https://www.hesta.com.au/members/your-superannuation/fees-and-costs
 HOSTPLUS Superannuation Fund,78,0,0.0082,0.0009,HOSTPLUS_fees-and-costs-guide.pdf.coredownload.pdf
 IOOF MYSUPER,78,0.0025,0.0061,0.0008,https://www.ioof.com.au/superannuation/mysuper-dashboard
 legalsuper,51.48,0.0029,0.0052,0.0009,https://www.legalsuper.com.au/why-join-legalsuper/superannuation-fees?openAccordions=What-do-administration-fees-cover%3F
