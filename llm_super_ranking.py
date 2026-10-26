@@ -18,6 +18,7 @@ Outputs in results/<timestamp>/<persona>/:
     summary.csv    one row per fund: actual rank and fees, each model's mean rank and fees
     accuracy.csv   one row per model: rank correlation with the actual ranking, median % error per fee,
                    and how many of its totals don't equal its own admin + investment + transaction
+    agreement.csv  rank correlation between every pair of rankings: the actual one and each model's
     long.csv       one row per run x model x fund, with the model's reason and total_gap
     raw.json       prompt, full responses, tokens and cost
 
@@ -47,6 +48,9 @@ MODELS: list[dict[str, Any]] = [
     {"provider": "google", "model": "gemini-3.1-pro-preview", "in": 2.00, "out": 12.00, "max_tokens": 32768},
 ]
 
+# The investment option the fees in inputs/fees.csv are for; the prompt asks the models about it.
+OPTION = "the fund's growth or high-growth investment option (for a lifecycle product, the stage for your age)"
+
 FORMAT = """
 
 Funds:
@@ -57,7 +61,7 @@ Answer with a single markdown table with exactly these columns:
 
 Rules:
 - Rank 1 has the lowest total annual fees and costs for you, rank {n} the highest.
-- The dollar columns are your estimates for one year in the fund's default MySuper option on your balance, each as a single dollar amount: administration fees, investment fees, transaction costs, and their total.
+- The dollar columns are your estimates for one year in {option} on your balance, each as a single dollar amount: administration fees, investment fees, transaction costs, and their total.
 - Include every fund exactly once, and no other funds.
 - Write each fund name exactly as it appears in the list above.
 - In Reason, explain in one or two sentences why you gave the fund this rank.
@@ -216,7 +220,7 @@ def main() -> None:
 
     Command-line options: --runs N (times to ask each model, default 1) and
     --provider {all,anthropic,openai,google}. For each persona in personas/, writes
-    raw.json, long.csv, summary.csv and accuracy.csv to results/<timestamp>/<persona>/
+    raw.json, long.csv, summary.csv, accuracy.csv and agreement.csv to results/<timestamp>/<persona>/
     (see the module docstring) and prints the summary and accuracy tables. A failed
     call is printed and recorded, and the run carries on.
 
@@ -245,7 +249,7 @@ def main() -> None:
         total = admin + invest + trans
         actual = pd.DataFrame({"actual_rank": total.rank(method="min").astype(int), "actual_total": total,
                                "actual_admin": admin, "actual_invest": invest, "actual_trans": trans}).round(2)
-        prompt = persona_text + FORMAT.format(funds="\n".join(f"- {f}" for f in funds), n=len(funds))
+        prompt = persona_text + FORMAT.format(funds="\n".join(f"- {f}" for f in funds), n=len(funds), option=OPTION)
         print(f"\n=== {persona.stem}: balance ${balance:,.0f} ===")
 
         rows, calls = [], []
@@ -292,6 +296,11 @@ def main() -> None:
         summary = summary[[c for c in order if c in summary]]  # skips models with no answers
         summary.to_csv(out / "summary.csv", index_label="fund", encoding="utf-8-sig")
 
+        # Spearman rank correlation between the actual ranking and each model's, and between models
+        labels = {"actual_rank": "actual", **{f"rank_{n}": n for n in names}}
+        agreement = summary[[c for c in labels if c in summary]].rename(columns=labels).corr(method="spearman").round(2)
+        agreement.to_csv(out / "agreement.csv", index_label="ranking", encoding="utf-8-sig")
+
         by_model = df.groupby("model")
         accuracy = pd.DataFrame({
             "rank_corr": {m: g["rank"].corr(g.actual_rank) for m, g in by_model},  # Spearman when no ties
@@ -300,7 +309,7 @@ def main() -> None:
             "total_mismatches_per_run": (df.total_gap.abs() > TOTAL_TOLERANCE).groupby(df.model).sum() / args.runs,
         }).round(2)
         accuracy.to_csv(out / "accuracy.csv", index_label="model", encoding="utf-8-sig")
-        print(f"\n{summary.to_string()}\n\n{accuracy.to_string()}\nSaved to {out}")
+        print(f"\n{summary.to_string()}\n\n{accuracy.to_string()}\n\n{agreement.to_string()}\nSaved to {out}")
 
     print(f"\nTotal cost: ${total_cost:.4f}")
 
